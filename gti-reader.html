@@ -1,84 +1,94 @@
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" href="./assets/css/gti.css">
-	<div class="container" id="gti">
-		<p>GTi Reader is an Angular 1 plugin that can be used to import and display programmes from GTi in to a customisable component.</p>
-		<div class="example">
-			<h3>Default settings</h3>
-			<p>To display a feed showing <strong>all</strong> open programmes, declare a <code>programme-lister</code> directive; simple!</p>
-			<div class="panel-wrapper">
-				<h4 class="panel-heading">Markup</h4>
-				<div class="panel-content">
-					<div class="code">
-<pre><code>&lt;div <span class="attrib">programme-lister</span>&gt;&lt;/div&gt;</code></pre>
-					</div>					
-				</div>
-			</div>
-			<div class="panel-wrapper">
-				<h4 class="panel-heading">Output</h4>
-				<div class="panel-content">
-					<div programme-lister></div>
-				</div>
-			</div>
-		
-		</div>
-		<div class="example">
-			<h3>Filtering</h3>
-			<p>The <code>programme-lister</code> directive on its own is useful for displaying all programmes, but when you're dealing with a programme list that's 10 or more programmes large, you'll want to provide users with a means of refining the results.</p>
-			<p>To add filtering to the feed, add a new element with the a <code>programme-filter</code> directive. By default, there will be no filter controls; these must be added as additional attributes. The 4 control directives are:</p>
-			<ul>
-				<li><code>textsearch</code> - A free-text keyword search input</li>
-				<li><code>business</code> - A select box displaying all available business areas</li>
-				<li><code>location</code> - Another select box displaying all available locations</li>
-				<li><code>programme</code> - And yet another select box dsplaying all programme types (Graduate/intern)</li>
-			</ul>
-			<p>This example shows a component only using <code>business</code> and <code>programme</code>:</p>
-			<div class="panel-wrapper">
-				<h4 class="panel-heading">Markup</h4>
-				<div class="panel-content">
-					<div class="code">
-<pre><code>&lt;div <span class="attrib">programme-lister</span>&gt;
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>GTi Reader</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./assets/css/gti.css">
+</head>
+
+<body>
+    <div class="container" id="gti">
+        <p>GTi Reader is an Angular 1 plugin that can be used to import and display programmes from GTi in to a customisable component.</p>
+        <div class="example">
+            <h3>Default settings</h3>
+            <p>To display a feed showing <strong>all</strong> open programmes, declare a <code>programme-lister</code> directive; simple!</p>
+            <div class="panel-wrapper">
+                <h4 class="panel-heading">Markup</h4>
+                <div class="panel-content">
+                    <div class="code">
+                        <pre><code>&lt;div <span class="attrib">programme-lister</span>&gt;&lt;/div&gt;</code></pre>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-wrapper">
+                <h4 class="panel-heading">Output</h4>
+                <div class="panel-content">
+                    <div programme-lister></div>
+                </div>
+            </div>
+        </div>
+        <div class="example">
+            <h3>Filtering</h3>
+            <p>The <code>programme-lister</code> directive on its own is useful for displaying all programmes, but when you're dealing with a programme list that's 10 or more programmes large, you'll want to provide users with a means of refining the results.</p>
+            <p>To add filtering to the feed, add a new element with the a <code>programme-filter</code> directive. By default, there will be no filter controls; these must be added as additional attributes. The 4 control directives are:</p>
+            <ul>
+                <li><code>textsearch</code> - A free-text keyword search input</li>
+                <li><code>business</code> - A select box displaying all available business areas</li>
+                <li><code>location</code> - Another select box displaying all available locations</li>
+                <li><code>programme</code> - And yet another select box dsplaying all programme types (Graduate/intern)</li>
+            </ul>
+            <p>This example shows a component only using <code>business</code> and <code>programme</code>:</p>
+            <div class="panel-wrapper">
+                <h4 class="panel-heading">Markup</h4>
+                <div class="panel-content">
+                    <div class="code">
+                        <pre><code>&lt;div <span class="attrib">programme-lister</span>&gt;
 	&lt;div <span class="attrib">programme-filter</span> <span class="attrib">business</span> <span class="attrib">programme</span>&gt;&lt;/div&gt;
 &lt;/div&gt;</code></pre>
-					</div>					
-				</div>
-			</div>
-			<div class="panel-wrapper">
-				<h4 class="panel-heading">Output</h4>
-				<div class="panel-content">
-					<div class="lister" programme-lister>
-						<div programme-filter business programme></div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="example">
-			<h3>Restricting programmes</h3>
-			<p>It is possible to restrict the scope of programmes available (with or without filtering) by specifying attributes in the top-level <code>programme-lister</code> directive. If used in conjunction with <code>programme-filter</code> the available filter options will be pre-selected accordingly.</p>
-
-			<p>Note that if a value is mis-typed (e.g. <code>location="Machezter"</code> then no results will show). The following attributes can be used to filter results sets:</p>
-			<ul>
-				<li><code>business</code></li>
-				<li><code>location</code></li>
-				<li><code>programme</code></li>
-			</ul>
-			<div class="panel-wrapper">
-				<h4 class="panel-heading">Markup</h4>
-				<div class="panel-content">
-					<div class="code">
-<pre><code>&lt;div <span class="attrib">programme-lister</span> <span class="attrib">location</span>="<span class="attrib-text">Manchester</span>" <span class="attrib">programme</span>="<span class="attrib-text">Internship</span>"&gt;
+                    </div>
+                </div>
+            </div>
+            <div class="panel-wrapper">
+                <h4 class="panel-heading">Output</h4>
+                <div class="panel-content">
+                    <div class="lister" programme-lister>
+                        <div programme-filter business programme></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="example">
+            <h3>Restricting programmes</h3>
+            <p>It is possible to restrict the scope of programmes available (with or without filtering) by specifying attributes in the top-level <code>programme-lister</code> directive. If used in conjunction with <code>programme-filter</code> the available filter options will be pre-selected accordingly.</p>
+            <p>Note that if a value is mis-typed (e.g. <code>location="Machezter"</code> then no results will show). The following attributes can be used to filter results sets:</p>
+            <ul>
+                <li><code>business</code></li>
+                <li><code>location</code></li>
+                <li><code>programme</code></li>
+            </ul>
+            <div class="panel-wrapper">
+                <h4 class="panel-heading">Markup</h4>
+                <div class="panel-content">
+                    <div class="code">
+                        <pre><code>&lt;div <span class="attrib">programme-lister</span> <span class="attrib">location</span>="<span class="attrib-text">Manchester</span>" <span class="attrib">programme</span>="<span class="attrib-text">Internship</span>"&gt;
 	&lt;div <span class="attrib">programme-filter</span> <span class="attrib">freetext</span> <span class="attrib">business</span> <span class="attrib">programme</span> <span class="attrib">location</span>&gt;&lt;/div&gt;
 &lt;/div&gt;</code></pre>
-					</div>					
-				</div>
-			</div>
-			<div class="panel-wrapper">
-				<h4 class="panel-heading">Output</h4>
-				<div class="panel-content">
-					<div programme-lister location="Manchester" programme="Internship">
-						<div programme-filter freetext business programme location></div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<script src="/assets/js/gti-reader.js"></script>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-wrapper">
+                <h4 class="panel-heading">Output</h4>
+                <div class="panel-content">
+                    <div programme-lister location="Manchester" programme="Internship">
+                        <div programme-filter freetext business programme location></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/assets/js/gti-reader.js"></script>
+</body>
+
+</html>
